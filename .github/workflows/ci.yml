@@ -5,6 +5,7 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch:
 
 env:
   YARN_ENABLE_GLOBAL_CACHE: false
@@ -48,8 +49,8 @@ jobs:
         node:
           - 18
           - 20
-          - 21
           - 22
+          - 23
         platform:
           - ubuntu-latest
           - macos-latest
