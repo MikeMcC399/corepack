@@ -120,12 +120,15 @@ const testedPackageManagers: Array<[string, string] | [string, string, string]> 
   [`yarn`, `3.0.0-rc.2`],
   [`yarn`, `3.0.0-rc.2+sha1.694bdad81703169e203febd57f9dc97d3be867bd`],
   [`yarn`, `3.0.0-rc.2+sha224.f83f6d1cbfac10ba6b516a62ccd2a72ccd857aa6c514d1cd7185ec60`],
-  [`pnpm`, `4.11.6`],
-  [`pnpm`, `4.11.6+sha1.7cffc04295f4db4740225c6c37cc345eb923c06a`],
-  [`pnpm`, `4.11.6+sha224.7783c4b01916b7a69e6ff05d328df6f83cb7f127e9c96be88739386d`],
-  [`pnpm`, `6.6.2`],
-  [`pnpm`, `6.6.2+sha1.7b4d6b176c1b93b5670ed94c24babb7d80c13854`],
-  [`pnpm`, `6.6.2+sha224.eb5c0acad3b0f40ecdaa2db9aa5a73134ad256e17e22d1419a2ab073`],
+  [`pnpm`, `8.15.9`],
+  [`pnpm`, `8.15.9+sha1.aa4bc353b5f59fe1f1df5d802ce049ddf7f3c60e`],
+  [`pnpm`, `8.15.9+sha512.499434c9d8fdd1a2794ebf4552b3b25c0a633abcee5bb15e7b5de90f32f47b513aca98cd5cfd001c31f0db454bc3804edccd578501e4ca293a6816166bbd9f81`],
+  [`pnpm`, `9.15.4`],
+  [`pnpm`, `9.15.4+sha1.ffa0b5c573381e8035b354028ccff97c8e452047`],
+  [`pnpm`, `9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0`],
+  [`pnpm`, `10.1.0`],
+  [`pnpm`, `10.1.0+sha1.ab7948c89104fdd3fc88b5b391fa4b73fd800631`],
+  [`pnpm`, `10.1.0+sha512.c89847b0667ddab50396bbbd008a2a43cf3b581efd59cf5d9aa8923ea1fb4b8106c041d540d08acb095037594d73ebc51e1ec89ee40c88b30b8a66c0fae0ac1b`],
   [`npm`, `6.14.2`],
   [`npm`, `6.14.2+sha1.f057d35cd4792c4c511bb1fa332edb43143d07b0`],
   [`npm`, `6.14.2+sha224.50512c1eb404900ee78586faa6d756b8d867ff46a328e6fb4cdf3a87`],
@@ -622,7 +625,7 @@ it(`should support hydrating package managers if cache folder was removed`, asyn
 
 it(`should support hydrating multiple package managers from cached archives`, async () => {
   await xfs.mktempPromise(async cwd => {
-    await expect(runCli(cwd, [`pack`, `yarn@2.2.2`, `pnpm@5.8.0`])).resolves.toMatchObject({
+    await expect(runCli(cwd, [`pack`, `yarn@2.2.2`, `pnpm@10.1.0`])).resolves.toMatchObject({
       exitCode: 0,
       stderr: ``,
     });
@@ -649,11 +652,11 @@ it(`should support hydrating multiple package managers from cached archives`, as
     });
 
     await xfs.writeJsonPromise(ppath.join(cwd, `package.json` as Filename), {
-      packageManager: `pnpm@5.8.0`,
+      packageManager: `pnpm@10.1.0`,
     });
 
     await expect(runCli(cwd, [`pnpm`, `--version`])).resolves.toMatchObject({
-      stdout: `5.8.0\n`,
+      stdout: `10.1.0\n`,
       stderr: ``,
       exitCode: 0,
     });
