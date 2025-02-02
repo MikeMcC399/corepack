@@ -57,3 +57,8 @@ jobs:
       #     branch: actions/tools-update-config.json
       #     commit-message: "feat: update package manager versions"
       #     title: "feat: update package manager versions"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: config
+          path: config.json
+          retention-days: 1
