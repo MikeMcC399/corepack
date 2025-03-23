@@ -9,12 +9,26 @@ and pnpm without having to install them**.
 
 ## How to Install
 
-### Default Installs
+Corepack is available for installation as an npm module [corepack](https://www.npmjs.com/package/corepack) from the npm registry.
 
-Corepack is [distributed by default with all recent Node.js versions](https://nodejs.org/api/corepack.html).
-Run `corepack enable` to install the required Yarn and pnpm binaries on your path.
+Corepack is also [included in all currently supported Node.js versions](https://nodejs.org/api/corepack.html). The planned next version of Node.js (`24.x`) will however be the last version to include Corepack. Node.js will continue to provide updates of Corepack versions with existing Node.js release lines until their respective [end-of-life](https://github.com/nodejs/release#release-schedule) milestone is reached. For Node.js `24.x` the scheduled EOL is Apr 30, 2028. Refer to the [Node.js release schedule](https://github.com/nodejs/release#release-schedule) for information on past, current and future planned releases.
 
-### Manual Installs
+### Installation Comparison
+
+| Property         | npm installation                | Node.js bundle                        |
+| ---------------- | ------------------------------- | ------------------------------------- |
+| Availability     | ongoing                         | ends with Node.js `24.x` Apr 30, 2028 |
+| Release tracking | latest release                  | rollout obeys Node.js schedule        |
+| Enabled          | automatic                       | manual                                |
+| Experimental     | initial development, not stable | experimental label                    |
+
+The version of Corepack available from npm is always the latest release. Corepack versions bundled into Node.js are subject to Node.js rollout scheduling and may be delayed.
+
+Corepack installed from npm is automatically enabled. The Corepack version bundled with Node.js must be manually enabled.
+
+Corepack releases `0.y.z` follow [Semantic Versioning Specification](https://semver.org/spec/v2.0.0.html#spec-item-4) for initial development and by this definition should not be considered stable. Corepack released through Node.js additionally carries the label [Experimental](https://nodejs.org/api/documentation.html#stability-index) relating to the distribution method.
+
+### npm Installs
 
 <details>
 <summary>Install Corepack using npm</summary>
@@ -34,10 +48,6 @@ Then install Corepack:
 ```shell
 npm install -g corepack
 ```
-
-We do acknowledge the irony and overhead of using npm to install Corepack, which
-is at least part of why the preferred option is to use the Corepack version that
-is distributed along with Node.js itself.
 
 </details>
 
@@ -65,6 +75,12 @@ for instructions on accessing the Windows apps page to modify settings.
 See [`CONTRIBUTING.md`](./CONTRIBUTING.md).
 
 </details>
+
+### Node.js Installs
+
+If you are using the bundled version of Corepack, distributed with Node.js, then just
+run `corepack enable` to install the required Yarn and pnpm binaries on your path.
+You can update the bundled version of Corepack using npm (see [npm Installs](#npm-installs) above).
 
 ## Usage
 
@@ -253,10 +269,10 @@ calling their respective binaries outside of projects defining the
 
 ### `corepack pack [... name[@<version>]]`
 
-| Option                | Description                                |
-| --------------------- | ------------------------------------------ |
-| `--json `             | Print the output folder rather than logs   |
-| `-o,--output `        | Path where to generate the archive         |
+| Option         | Description                              |
+| -------------- | ---------------------------------------- |
+| `--json `      | Print the output folder rather than logs |
+| `-o,--output ` | Path where to generate the archive       |
 
 Download the selected package managers and store them inside a tarball
 suitable for use with `corepack install -g`.
