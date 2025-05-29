@@ -61,7 +61,7 @@ jobs:
       # vitest fails "handle integrity checks" on Windows with Node.js 24.x
         exclude:
           - node: 24
-            platform: windows-latest
+            platform: windows-2025
 
     name: "${{matrix.platform}} w/ Node.js ${{matrix.node}}.x"
     runs-on: ${{matrix.platform}}
@@ -69,10 +69,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: "Use Node.js ${{matrix.node}}.x"
+      - name: "Use Node.js ${{matrix.node}}"
         uses: actions/setup-node@v4
         with:
-          node-version: ${{matrix.node}}.x
+          node-version: ${{matrix.node}}
+          check-latest: true
+      - run: node --version
 
       - name: Get the Yarn cache directory path
         id: yarn-cache-dir-path
