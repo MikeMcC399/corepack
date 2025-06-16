@@ -61,7 +61,7 @@ jobs:
       # vitest fails "handle integrity checks" on Windows with Node.js 24.x
         exclude:
           - node: 24
-            platform: windows-latest
+            platform: windows-2022
 
     name: "${{matrix.platform}} w/ Node.js ${{matrix.node}}.x"
     runs-on: ${{matrix.platform}}
