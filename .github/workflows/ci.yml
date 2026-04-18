@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: lts/*
-          check-latest: true
+          # check-latest: true
         env:
           SKIP_YARN_COREPACK_CHECK: 1
 
@@ -49,9 +49,10 @@ jobs:
       fail-fast: false
       matrix:
         node:
-          - 20
+          # - 20
           - 22
           - 24
+          - 25
         platform:
           - ubuntu-latest
           - macos-latest
@@ -74,7 +75,7 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: ${{matrix.node}}.x
-          check-latest: true
+          # check-latest: true
 
         env:
           SKIP_YARN_COREPACK_CHECK: 1
@@ -91,6 +92,7 @@ jobs:
           restore-keys: |
             ${{runner.os}}-yarn-
 
+      - run: npm install -g corepack # for Node.js 25
       - run: corepack yarn install --immutable
       - run: corepack yarn build # We need the stubs to run the tests
 
