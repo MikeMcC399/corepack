@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v6.3.0
         with:
           node-version: lts/*
           check-latest: true
@@ -71,7 +71,7 @@ jobs:
       - uses: actions/checkout@v6
 
       - name: "Use Node.js ${{matrix.node}}.x"
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v6.3.0
         with:
           node-version: ${{matrix.node}}.x
           check-latest: true
