@@ -93,7 +93,9 @@ jobs:
             ${{runner.os}}-yarn-
 
       - if: ${{ matrix.node >= 25 }}
-        run: npm install -g corepack # for Node.js 25+
+        run: |
+              npm uninstall yarn -g
+              npm install -g corepack
       - run: corepack yarn install --immutable
       - run: corepack yarn build # We need the stubs to run the tests
 
