@@ -92,7 +92,8 @@ jobs:
           restore-keys: |
             ${{runner.os}}-yarn-
 
-      - run: npm install -g corepack # for Node.js 25
+      - if: ${{ matrix.node >= 25 }}
+        run: npm install -g corepack # for Node.js 25+
       - run: corepack yarn install --immutable
       - run: corepack yarn build # We need the stubs to run the tests
 
