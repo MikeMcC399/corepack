@@ -40,6 +40,7 @@ jobs:
       - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444  # v5.0.0
         with:
           node-version: lts/*
+          check-latest: true
         env:
           SKIP_YARN_COREPACK_CHECK: 1
 
@@ -56,11 +57,11 @@ jobs:
 
       - run: corepack yarn install --immutable
 
-      - name: Publish to the npm registry
-        run: corepack yarn npm publish --provenance
+      # - name: Publish to the npm registry
+      #   run: corepack yarn npm publish --provenance
 
       - run: corepack yarn pack --out corepack.tgz
-      - name: Add Corepack package archive to GitHub release
-        run: gh release upload ${{ needs.release-please.outputs.release_tag }} corepack.tgz
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Add Corepack package archive to GitHub release
+      #   run: gh release upload ${{ needs.release-please.outputs.release_tag }} corepack.tgz
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -5,6 +5,7 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch:
 
 env:
   YARN_ENABLE_GLOBAL_CACHE: false
@@ -20,6 +21,7 @@ jobs:
       - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444  # v5.0.0
         with:
           node-version: lts/*
+          check-latest: true
         env:
           SKIP_YARN_COREPACK_CHECK: 1
 
@@ -72,6 +74,7 @@ jobs:
         uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444  # v5.0.0
         with:
           node-version: ${{matrix.node}}.x
+          check-latest: true
         env:
           SKIP_YARN_COREPACK_CHECK: 1
 
