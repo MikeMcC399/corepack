@@ -51,16 +51,20 @@ jobs:
           - 20
           - 22
           - 24
+          - 25
         platform:
           - ubuntu-latest
           - macos-latest
           - windows-latest
 
-      # Temporarily skipping Node.js 24 under Windows due to issue
+      # Skip Node.js 24 & 25 under Windows due to issue
       # https://github.com/nodejs/corepack/issues/715
-      # vitest fails "handle integrity checks" on Windows with Node.js 24.x
+      # vitest fails "handle integrity checks" on Windows with Node.js >=24.x
+      # until this is resolved
         exclude:
           - node: 24
+            platform: windows-latest
+          - node: 25
             platform: windows-latest
 
     name: "${{matrix.platform}} w/ Node.js ${{matrix.node}}.x"
@@ -88,6 +92,10 @@ jobs:
           restore-keys: |
             ${{runner.os}}-yarn-
 
+      - if: ${{ matrix.node >= 25 }}
+        run: |
+              npm uninstall yarn -g
+              npm install -g corepack
       - run: corepack yarn install --immutable
       - run: corepack yarn build # We need the stubs to run the tests
 
