@@ -6,6 +6,7 @@ export default defineConfig({
     setupFiles: [`./tests/setupTests.ts`],
     testTimeout: 120000,
     retry: 2,
+    fileParallelism: false,
   },
   esbuild: {
     target: `node${process.versions.node}`,
