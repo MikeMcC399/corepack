@@ -1,7 +1,7 @@
 "use strict";
 const path = require(`node:path`);
 const crypto = require(`node:crypto`);
-const { DatabaseSync: SQLite3 } = require(`node:sqlite`);
+const {DatabaseSync: SQLite3} = require(`node:sqlite`);
 
 const db = new SQLite3(path.join(__dirname, `nocks.db`));
 process.once(`exit`, () => {
