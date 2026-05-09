@@ -47,7 +47,7 @@
     }
   },
   "resolutions": {
-    "undici-types": "6.x"
+    "undici-types": "8.x"
   },
   "scripts": {
     "build": "run clean && run build:bundle && tsx ./mkshims.ts",

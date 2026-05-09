@@ -3527,10 +3527,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici-types@npm:6.x":
-  version: 6.25.0
-  resolution: "undici-types@npm:6.25.0"
-  checksum: 10c0/760cc4e1eb04f22b00d83e2ab6affce8db396c395d130846025d295b65095a41904d5ae8b46c6b48c4a74ed5b8b1b25428d8c7f40c174c80e0e8e38207a22b2d
+"undici-types@npm:8.x":
+  version: 8.2.0
+  resolution: "undici-types@npm:8.2.0"
+  checksum: 10c0/c336da79fad086b064c5cde5bd6a7616064de00f581eb4071470a4e1ea9d0391bca5d26b4b46402098b900f6007dde56f252f82b54698e15d23932de1404e59b
   languageName: node
   linkType: hard
 
