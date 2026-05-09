@@ -1250,7 +1250,7 @@ __metadata:
     tar: "npm:^7.5.11"
     tsx: "npm:^4.16.2"
     typescript: "npm:^5.7.3"
-    undici: "npm:^6.24.0"
+    undici: "npm:^8.2.0"
     v8-compile-cache: "npm:^2.3.0"
     vitest: "npm:^3.0.5"
     which: "npm:^5.0.0"
@@ -3534,10 +3534,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici@npm:^6.24.0, undici@npm:^6.25.0":
+"undici@npm:^6.25.0":
   version: 6.25.0
   resolution: "undici@npm:6.25.0"
   checksum: 10c0/2597cc6689bdb02c210c557b1f85febbfda65becae6e6fc1061508e2f33734d25207f81cd8af56ada9956329eb3a7bd7431e87dcfeceba20ee87059b57dcf985
+  languageName: node
+  linkType: hard
+
+"undici@npm:^8.2.0":
+  version: 8.2.0
+  resolution: "undici@npm:8.2.0"
+  checksum: 10c0/11a172a1a9d9b958e1e60e01fd416b630f977a2607783e35a20ba0a6a89a79dc8d03f9d496c08b4d8541a787db02cbe83be56c55d1285400385c1b6061ef2015
   languageName: node
   linkType: hard
 
